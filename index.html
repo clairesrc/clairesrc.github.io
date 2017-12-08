@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Claire R | Developer</title>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Comfortaa|Patua+One');
+		html {
+			width: 100%;
+			height: 100vh;
+			background: #111 center center no-repeat;
+			background-size: cover;
+		}
+		body {
+			background: #1c0810;
+			color: #d44f45;
+			font-family: 'Comfortaa', cursive;
+			font-size: 1em;
+			margin: 3em auto;
+			max-width: 40em;
+			padding: 2em;
+			box-shadow: 0 10px 35px rgba(0,0,0,0.75);
+		}
+		a {
+			color: #ff6f65;
+			transition: color .25s;
+		}
+		a:hover {
+			color: #fff;
+		}
+		h1, h2 {
+			font-weight: 400;
+			margin: 0;
+		}
+		h1 {
+			font-family: 'Patua One', cursive;
+			font-size: 4em;
+			line-height: 1em;
+		}
+		h2 {
+			text-transform: uppercase;
+			font-size: 2em;
+		}
+		p {
+			margin-top: 1em;
+			margin-bottom: 0;
+		}
+
+		.photo {
+			float: left;
+			margin: 0;
+			margin-right: 3em;
+			margin-left: 1em;
+		}
+		.photo img {
+			width: 9em;
+		}
+
+		@media all and (min-width: 700px) {
+			html {
+				background-image:  url(https://source.unsplash.com/category/nature/1600x900);
+			}
+		}
+		@media all and (max-width: 840px) {
+			.photo {
+				float: none;
+				margin: 0;
+				margin-bottom: 1em;
+			}
+			body {
+				margin: 2em;
+			}
+			h1 {
+				line-height: 0.8em;
+				padding-bottom: 0.25em;
+			}
+			h2 {
+				font-size: 1.5em;
+			}
+		}
+		@media all and (max-width: 480px) {
+			p span {
+				display: block;
+				opacity: 0;
+				height: 1em;
+			}
+		}
+	</style>
+</head>
+<body>
+<figure class="photo">
+	<img src="me.jpg" alt="Photo of Claire R" title="Photo of Claire R">
+</figure>
+<section class="intro">
+	<h1>Claire R</h1>
+	<h2>Developer, <a href="https://www.paro.io" target="_blank">Paro.io</a></h2>
+	<p>Chicago, IL <span>&bull;</span> <a href="" id="email">Email</a></p>
+</section>
+<script>
+    document.getElementById("email").setAttribute('href','mai'+'lto:claire'+'@'+'par'+'o.io');
+</script>
+</body>
+</html>
