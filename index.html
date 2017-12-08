@@ -1,104 +1,493 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Claire R | Developer</title>
+	<title>claire.zone • Software Engineer</title>
+	<script src="https://kit.fontawesome.com/d6826bc2c9.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<style type="text/css">
-		@import url('https://fonts.googleapis.com/css?family=Comfortaa|Patua+One');
+		@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+		@keyframes kenBurnsInOut {
+			0% {
+				background-position: center top;
+				background-size: 100%;
+			}
+
+			100% {
+				background-position: center bottom;
+				background-size: 150%;
+			}
+		}
+
+		html {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-size: 137.5%;
+			-webkit-font-smoothing: antialiased
+		}
+
+		p {
+			line-height: 1.5em;
+			margin-top: 1.5em;
+			margin-bottom: 0
+		}
+
+		ul {
+			margin-top: 1.5em;
+			margin-bottom: 1.5em
+		}
+
+		ul li {
+			line-height: 1.5em
+		}
+
+		ul ul {
+			margin-top: 0;
+			margin-bottom: 0
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-family: Comfortaa, cursive;
+			margin-top: 1.5em;
+			margin-bottom: 0;
+			line-height: 1.5em
+		}
+
+		h2 {
+			font-size: 2.828em;
+			line-height: 3em;
+			margin-top: 3em
+		}
+
+		h3 {
+			font-size: 1.707em
+		}
+
+		h4 {
+			font-size: 1.414em
+		}
+
 		html {
 			width: 100%;
 			height: 100vh;
 			background: #111 center center no-repeat;
+			background-image: url(bg.jpeg);
 			background-size: cover;
+			background-attachment: fixed
 		}
+
 		body {
-			background: #1c0810;
+			margin: 0
+		}
+
+		a {
+			color: #ff6f65;
+			transition: color .25s
+		}
+
+		a:hover {
+			color: #dfe0fe
+		}
+
+		h1,
+		h2,
+		h3,
+		h4 {
+			font-family: Comfortaa, cursive
+		}
+
+		h1,
+		h2 {
+			margin: 0;
+			padding-bottom: .45em
+		}
+
+		h1 {
+			font-size: 4em;
+			line-height: 1em;
+			background-image: url(bg.jpeg);
+			background-clip: text;
+			-webkit-background-clip: text;
+			color: rgba(212, 79, 69, .8);
+			background-size: contain;
+			animation: kenBurnsInOut 7s ease 0s infinite alternate forwards
+		}
+
+		h2 {
+			text-transform: uppercase;
+			font-size: 1.8em
+		}
+
+		p {
+			margin-top: 1em;
+			line-height: 1.5em;
+			margin-bottom: 0
+		}
+
+		p:first-child {
+			margin-top: 0;
+		}
+
+		header {
+			width: 100%
+		}
+
+		header h2 {
+			line-height: 1em
+		}
+
+		section {
+			background: rgba(28, 8, 16, .96);
 			color: #d44f45;
-			font-family: 'Comfortaa', cursive;
 			font-size: 1em;
 			margin: 3em auto;
 			max-width: 40em;
 			padding: 2em;
-			box-shadow: 0 10px 35px rgba(0,0,0,0.75);
+			padding-top: 1.5em;
+			box-shadow: 0 10px 35px rgba(0, 0, 0, .75)
 		}
-		a {
-			color: #ff6f65;
-			transition: color .25s;
-		}
-		a:hover {
+
+		section.hero {
+			background: linear-gradient(90deg, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, .35) 50%, rgba(0, 0, 0, 0) 85%);
+			font-family: Comfortaa, cursive;
+			box-shadow: none;
+			font-size: 150%;
+			max-width: 100%;
+			padding: 1em 0;
 			color: #fff;
+			text-shadow: 0 10px 35px rgba(0, 0, 0, .95)
 		}
-		h1, h2 {
-			font-weight: 400;
-			margin: 0;
+
+		section.hero p {
+			margin-top: 0
 		}
-		h1 {
-			font-family: 'Patua One', cursive;
-			font-size: 4em;
-			line-height: 1em;
+
+		section.hero .contain {
+			max-width: 27em
 		}
-		h2 {
-			text-transform: uppercase;
-			font-size: 2em;
+
+		.scroll header {
+			top: 0;
+			position: fixed
 		}
-		p {
-			margin-top: 1em;
-			margin-bottom: 0;
+
+		.scroll header section {
+			margin: 0 auto;
+			font-size: .5em;
+			max-width: 100%
+		}
+
+		.contain {
+			width: 100%;
+			margin: 0 auto;
+			max-width: 82em
+		}
+
+		.photo,
+		header,
+		header section,
+		header section h1,
+		header section h2 {
+			transition: .15s
+		}
+
+		.scroll header section h1,
+		.scroll header section h2 {
+			display: inline-block;
+			padding-bottom: 0
+		}
+
+		.scroll header section h2 {
+			padding-left: 1em
+		}
+
+		.scroll .photo img {
+			width: 3.6em
+		}
+
+		body>section>:first-child {
+			margin-top: 0;
+			padding-top: 0
+		}
+
+		body.scroll>section:first-of-type {
+			margin-top: 7em
 		}
 
 		.photo {
 			float: left;
 			margin: 0;
 			margin-right: 3em;
-			margin-left: 1em;
-		}
-		.photo img {
-			width: 9em;
+			margin-left: 1em
 		}
 
-		@media all and (min-width: 700px) {
-			html {
-				background-image:  url(https://source.unsplash.com/category/nature/1600x900);
-			}
+		.photo img {
+			width: 8.75em
 		}
-		@media all and (max-width: 840px) {
-			.photo {
+
+		h2 a .fab,
+		h2 a .far {
+			color: #dfe0fe;
+			transform: translateY(-.03em);
+			background: rgba(192, 192, 247, 0);
+			border: 5px rgba(192, 192, 247, 0) solid;
+			border-radius: 100%
+		}
+
+		h2 a .fab:hover,
+		h2 a .far:hover {
+			color: #922cf9;
+			background: rgba(192, 192, 247, 1);
+			border: 5px rgba(192, 192, 247, 1) solid
+		}
+
+		p a .fab,
+		p a .far {
+			padding-right: .25em;
+			transform: translateY(.05em)
+		}
+
+		ul {
+			list-style-type: none;
+			padding-left: .3em
+		}
+
+		ul li {
+			padding: .25em 0;
+			line-height: 1.5em
+		}
+
+		ul ul {
+			list-style-type: square;
+			padding-left: 3em
+		}
+
+		ul li {
+			list-style-type: none;
+			display: inline-block;
+			padding-right: 1em;
+		}
+
+		ul.interests li::before,
+		ul ul li::before {
+			content: "•";
+			color:rgba(212, 79, 69, .4);
+			padding-right: 0.5em;
+		}
+
+		ul.interests {
+			padding-left: 3.25em;
+			list-style-type: square;
+			margin-bottom: 0
+		}
+
+		ul.interests ul {
+			padding-left: 1em;
+			list-style-type: circle
+		}
+
+		ul.interests ul li::before {
+			content: "";
+			padding: 0;
+		}
+
+		h4.first {
+			margin-top: 0;
+		}
+
+		@media all and (max-width:58em) {
+			body.scroll>section:first-of-type {
+				margin-top: 7em
+			}
+			
+			.scroll .photo img {
+				width: 2.25em
+			}
+
+			body:not(.scroll) .photo {
 				float: none;
 				margin: 0;
-				margin-bottom: 1em;
+				margin-bottom: 1em
 			}
-			body {
-				margin: 2em;
+
+
+			ul.interests, ul ul {
+				padding-left: 0.5em;
 			}
+
+			body,
+			section {
+				margin: 0
+			}
+
+			body>section {
+				margin-top: 1em
+			}
+
 			h1 {
-				line-height: 0.8em;
-				padding-bottom: 0.25em;
+				line-height: .8em;
+				padding-bottom: .25em
 			}
+
+			h1 {
+				font-size: 3em;
+			}
+
 			h2 {
-				font-size: 1.5em;
+				font-size: 1.25em;
 			}
-		}
-		@media all and (max-width: 480px) {
-			p span {
-				display: block;
-				opacity: 0;
-				height: 1em;
+			.scroll header section h2 {
+				padding-left: 0.25em;
+			}
+
+			section.hero {
+				background: rgba(20, 20, 20, .96);
+				font-size: 125%
+			}
+
+			section.hero p {
+				padding: 0 1em
+			}
+
+			section {
+				padding: 1em;
+			}
+
+			.section.last {
+				margin-bottom: 0;
 			}
 		}
 	</style>
 </head>
+
 <body>
-<figure class="photo">
-	<img src="me.jpg" alt="Photo of Claire R" title="Photo of Claire R">
-</figure>
-<section class="intro">
-	<h1>Claire R</h1>
-	<h2>Developer, <a href="https://www.paro.io" target="_blank">Paro.io</a></h2>
-	<p>Chicago, IL <span>&bull;</span> <a href="" id="email">Email</a></p>
-</section>
-<script>
-    document.getElementById("email").setAttribute('href','mai'+'lto:claire'+'@'+'par'+'o.io');
-</script>
+	<header>
+		<section>
+			<div class="contain">
+				<figure class="photo">
+					<img src="me.jpg" alt="Photo of Claire R" title="Photo of Claire R">
+				</figure>
+				<h1>Claire R </h1>
+				<h2>
+					<a href="" class="email"><i class="far fa-envelope"></i></a> <a
+						href="https://github.com/clairesrc"><i class="fab fa-github"></i></a>
+				</h2>
+			</div>
+		</section>
+	</header>
+	<section class="hero">
+		<div class="contain">
+			<p>I am a self-taught computer person living in Chicago,&nbsp;IL&nbsp;🌎 with my&nbsp;wife&nbsp;👰 and
+				three&nbsp;cats&nbsp;🐈. I've been working in software since 2007 and I'm not even close to done yet.
+			</p>
+		</div>
+	</section>
+	<section>
+		<h3>📚 Skills</h3>
+		<ul>
+			<li>
+				<h4 class="first">💬 Languages</h4>
+				<ul>
+					<li>Go</li>
+					<li>Python</li>
+					<li>Ruby</li>
+					<li>Javascript, TypeScript</li>
+					<li>PHP</li>
+					<li>Shell scripting</li>
+				</ul>
+			</li>
+			<li>
+				<h4>✨ Web Frontend</h4>
+				<ul>
+					<li>HTML/CSS</li>
+					<li>Bootstrap</li>
+					<li>React</li>
+					<li>Vue</li>
+					<li>Angular</li>
+					<li>Google Analytics and GTM</li>
+				</ul>
+			</li>
+			<li>
+				<h4>☁️ Web Backend &amp; Infrastructure</h4>
+				<ul>
+					<li>AWS (Certified Solutions Architect)</li>
+					<li>Terraform</li>
+					<li>GraphQL</li>
+					<li>Containerization</li>
+					<li>Observability</li>
+					<li>CI/CD</li>
+					<li>RDBMS: MySQL, Postgres</li>
+					<li>Non-relational databases</li>
+					<li>Kafka</li>
+					<li>Snowlfake OLAP</li>
+				</ul>
+			</li>
+			<li>
+				<h4>👥 People</h4>
+				<ul>
+					<li>Coordinating Agile workflows</li>
+					<li>Defining processes and developer platforms</li>
+					<li>Interfacing with stakeholders</li>
+					<li>Team leadership and management</li>
+					<li>Staff engineering and internal tooling: analytics people &hearts; me</li>
+					<li>I'm very funny</li>
+				</ul>
+			</li>
+		</ul>
+		<h3>🎉 Interests</h3>
+		<ul class="interests">
+			<li>Desktop Linux (Linux-only on all my machines for over ten years)</li>
+			<li>Raspberry Pi and embedded development</li>
+			<li>Virtualization with libvirt, KVM, qemu, VFIO</li>
+			<li>Home IT infrastructure and personal cloud/homelabbing</li>
+			<li>VDI and low-latency desktop streaming</li>
+			<li>VR</li>
+			<li>Video games</li>
+			<li>House plants</li>
+			<li>Self-hosting and owning my own data</li>
+			<li>Health &amp; fitness</li>
+			<li>Some books I love:
+				<ul>
+					<li>Design Patterns <small>(Gang of Four)</small></li>
+					<li>Site Reliability Engineering <small>(Google)</small></li>
+					<li>Microservices Patterns <small>(Richardson)</small></li>
+					<li>Domain-Driven Design <small>(Evans)</small></li>
+					<li>SICP <small>(Abelson &amp; Sussman)</small></li>
+					<li>UNIX: A History and Memoir <small>(Kernighan)</small></li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section class="last">
+		<p>While I am happily employed and not actively looking for new opportunities, feel free to <a
+				class="email">send an email</a> if you'd like to get in touch.</p>
+	</section>
+	<script>
+		var d = new Date();
+		var emails$ = document.getElementsByClassName("email");
+
+		for (var i = 0; i < emails$.length; i++) {
+			emails$[i].setAttribute('href', 'mai' + 'lto:hi' + '@' + 'clair' + 'e.zone')
+		}
+
+		window.onscroll = function () { scrollFunction() };
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+				document.getElementsByTagName("body")[0].classList.add("scroll")
+			} else {
+				document.getElementsByTagName("body")[0].classList.remove("scroll");
+			}
+		} 
+	</script>
 </body>
+
 </html>

@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/clairesrc
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://claire.zone
+  * I am clairesrc (https://keybase.io/clairesrc) on keybase.
+  * I have a public key with fingerprint 78EE 758D 22B1 C872 9081  C0D1 F70F D13B CBEB C573
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01015a8fedc9fca52e00c2e2960356349f7300d7a135c493221a5517dba0ee97a9b70a",
+      "fingerprint": "78ee758d22b1c8729081c0d1f70fd13bcbebc573",
+      "host": "keybase.io",
+      "key_id": "f70fd13bcbebc573",
+      "kid": "01015a8fedc9fca52e00c2e2960356349f7300d7a135c493221a5517dba0ee97a9b70a",
+      "uid": "7911bfc5db98e07beb45e3d114858319",
+      "username": "clairesrc"
+    },
+    "service": {
+      "hostname": "claire.zone",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1556567326,
+  "expire_in": 157680000,
+  "prev": "817a1490e48110cf554c79f269dd71fdecc3438f564dbc761b151cb6eb2531d8",
+  "seqno": 3,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.0
+Comment: https://keybase.io/crypto
+
+yMIkAnicrVJbSBVBGD5aWWmJUEgXMdrSrOwws7uzs3ukApUghAJJKJIOuzOzunQ6
+ezpnj1d8iB68JSWCGCUooT2EpV2eAlFRpOwC3Uy7KHYziagQAytqVuoh6LF5Geaf
+7/v+7/v5B1cu8sTHVG5cFfjY2rkmZqS/OeopHC5IrRQMm5YLvkrhKFu4WICyiOM/
+alHBJwAIINJVk1GimURHIgOAiEzUFCAhRZI1E0sAUKxDCRFZk0QR6ghBTA0dMKZh
+XTMw0IVMwbSCRSwcCltBh8tilTGMVCqKBiQqFjWgQgIoNDEwKZQMYjCDICxxYrEd
+cRncnKFHmNeyeY0//Av2/oH/z76jC3JYg9AwCaKGpjKAeTcZMYlCKKtIlaDmAiMs
+HNSPMY4mAd0Ks0iYCFWZAi+XWIS5k3Wj/AXxVthBxrmhsO3YxA7wj2LHCflcnlMe
+coGlzPD/lvAbVpDyMXJCCQtHLDso+CBHEsdyNSFCClKwJCqZAisLcXm/5SIQVlTA
+j9uGlXBJFfLYsgaYrEIIiImQTLBmiopGKYYmZYRIsqSaSJGpQbACDYggMRRmiEiC
+VBXcUMeDtuCTuE29iEtGrKKg7kTDTKga6Ctc7ImJ98QtiXXXyxO/POnP0m1IW+Zp
+f3Kq6Xpi22Be+WxdToF3U8XYh1qC2jLu69PJ1988Plw6P4NPbrsxUcwueSrnN18e
+7SiIT/pW/37uxbo33w/AtIvDW2fkak9RatI1FJ3MfpR7K2Pf8b6dD8/VvcI/SdfQ
+u877h1Y89bVNdZfNrp8e3Z7Q5R050ZvZUt+Ydic/1x8n9v54R+/trv9yc+T82mhy
+yoOsIwdrQV1iz+ToqpHPA+XVn/ZnLc0bf/i6N730tJbYPJ/TXZe9H5V2LWvvORMr
+PN9LhgOt+tyO+gyQPt4xO3nh2Zav/TMVLbebtIaGXVNJbzvWtY05EzfyYzsHXtdc
+XV2z50rq0Mu7042FZ8e0hLiUX0WfREY=
+=T1sn
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/clairesrc
+
+==================================================================
