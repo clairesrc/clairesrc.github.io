@@ -1,0 +1,7 @@
+---
+layout: post
+title:  "hi"
+date:   2022-10-01 03:13:52 -0500
+categories: update
+---
+I converted my site to use Jekyll and its Github Pages workflow.
