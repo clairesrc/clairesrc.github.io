@@ -1,4 +1,4 @@
-## Fixing audio delays in desktop Linux
+#### Fixing audio delays in desktop Linux
 
 I've been experiencing a weird issue lately with several of my Arch Linux desktop machines: a short delay when audio starts playing. It appears to persist across different desktop environments and sound outputs so I suspect there is a software issue somewhere.
 
