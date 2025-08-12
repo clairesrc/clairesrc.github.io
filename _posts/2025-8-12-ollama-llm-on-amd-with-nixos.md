@@ -29,3 +29,10 @@ Here's what I needed to add to my system configuration in order to get a fully-f
   hardware.amdgpu.amdvlk.enable = true;
   services.xserver.videoDrivers = [ "radeon" ];
 ```
+
+After applying the above changes I pulled up http://localhost:8080 and set up Open Web UI. 
+I was able to run a test conversation with the model I'd asked it to preload:
+<img width="100%" alt="screenshot of open webui set up correctly" src="https://github.com/user-attachments/assets/630b23b1-6806-432d-b7a8-4f85d76646a0" />
+
+After a short test conversation, I was able to use `btop` and `ollama ps` to confirm the inferencing was running on my GPU, not the CPU: 
+<img width="100%" alt="screenshot of system dashboard and ollama process metrics indicating the AI workload is running on the GPU" src="https://github.com/user-attachments/assets/4f59cef4-c45d-4bf2-8d6e-3a583ca85398" />
