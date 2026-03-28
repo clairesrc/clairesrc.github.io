@@ -44,7 +44,7 @@ When I had less GPU compute available, I had to hot-swap between models and infe
 
 Recently a family member expressed interest in learning French. I decided to have my local Qwen models create a custom app tailored to their needs for use as a study aid.
 
-I intentionally gave it a vague prompt so I could see how well it could decipher my requirements and determine the correct acceptance criteria. I didn’t bother to review the generated code too closely since I understand vibe coding is best for functional prototypes rather than production-ready apps. Considering that, I actually think it came up with something pretty impressive: 
+I intentionally gave it a vague prompt so I could see how well it could decipher my requirements and determine the correct acceptance criteria. I focused on evaluating a "zero-shot" workflow with minimal human input, and I didn’t bother to review the generated code too closely since I understand vibe coding is best for functional prototypes rather than production-ready apps. Considering that, I actually think it came up with something pretty impressive: 
 
 <img alt="It runs and does what I asked it to do" src="https://github.com/user-attachments/assets/4cfefaa0-4d38-4620-9f93-f8fc8dde07cf" />
 
