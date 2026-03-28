@@ -60,9 +60,13 @@ Speech recognition and synthesis are where I’ve been most impressed: Parakeet 
 
 As far as my needs are concerned, summarization, classification, and most vision tasks are a solved problem as well. In my experience, modern language models in the “small to medium” size class (say under 70b) can substitute paid cloud providers for those specific types of workloads in many situations.
 
-For code… Of course, GLM-5, Kimi K2.5 etc are the super-star open-source LLMs right now, but looking at their sizes…. Yeah, I’m not running those on my home cluster, But what about the smaller parameter sizes or lower quants? The recent Qwen3.5 release is very exciting; the variety of parameter sizes and MOE architecture availability gives a lot of flexibility for maximizing the output quality you can get out of a consumer graphics card. Open source inference runtimes like llamacpp and vllm make it possible to optimize to your heart’s content with tensor parallelism and CPU offloading. 
+For code… Of course, GLM-5, Kimi K2.5 etc are the super-star open-source LLMs right now, but looking at their sizes…. Yeah, I’m not running those on my home cluster. Qwen3.5 is very impressive for its size class. The wide variety of parameter sizes and MOE architecture availability gives a lot of flexibility for maximizing the output quality you can get out of a consumer graphics card. Open source inference runtimes like llamacpp and vllm make it possible to optimize to your heart’s content with tensor parallelism and CPU offloading. 
+
+But it's just not reliable enough to take on a vaguely-scoped task in same way the current large models can. It will make incredibly stupid mistakes, and it takes a considerable amount of human work to truly harness this local model's capabilities.
 
 <img alt="Let's be honest: this isn't great" src="https://github.com/user-attachments/assets/8b216c1f-c8de-4ad1-944c-892d90bd4d35" />
+
+Like with hand-coding something: if you're careless about the acceptance criteria, you are taking on the risk of the project collapsing in extremely frustrating ways. 
 
 Image generation is where I’m least impressed as the resource demands for a high-quality model go beyond what I can reasonably run at home alongside everything else. But even then, it’s often good enough, particularly if you generate several candidates and have your vision model pick the best one.
 
