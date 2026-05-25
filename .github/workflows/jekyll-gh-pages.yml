@@ -35,20 +35,6 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      - name: Minify CSS
-        run: |
-          ruby -e '
-            Dir.glob("./_site/**/*.css").each do |f|
-              css = File.read(f)
-              css = css.gsub(%r{/\*.*?\*/}m, "")
-              css = css.gsub(/\s*([{}:;,>~+])\s*/, "\1")
-              css = css.gsub(/;\s*}/, "}")
-              css = css.gsub(/\s+/, " ")
-              css = css.strip
-              File.write(f, css)
-            end
-          '
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
