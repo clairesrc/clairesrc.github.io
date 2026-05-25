@@ -1,8 +1,16 @@
+---
+layout: post
+title: "Ollama + Open WebUI using an AMD card on NixOS"
+date: 2025-08-12
+description: Setting up a local LLM workstation with AMD ROCm on NixOS.
+permalink: /2025/08/12/ollama-llm-on-amd-with-nixos.html
+---
+
 #### Ollama + Open WebUI using an AMD card on NixOS 
 
 I've been experimenting with local LLMs recently, and one of my test setups has been on a NixOS box running an AMD RX 6800XT.
 
-For a long time I had assumed LLMs were only really practical on Nvidia cards, but I was wrong -- modern LLM environments support ROCM just fine.
+For a long time I assumed LLMs were only practical on Nvidia cards, but I was wrong: modern LLM environments support ROCm just fine.
 
 Here's what I needed to add to my system configuration in order to get a fully-featured LLM workstation using AMD hardware on NixOS:
 

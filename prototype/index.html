@@ -1,0 +1,730 @@
+<!doctype html>
+<!--
+  claire.zone — refreshed homepage
+  Preserves: dark mood, Comfortaa display, coral accent, bg.jpeg texture,
+  scroll-shrink header, email obfuscation, photo, playful emoji headers.
+  Refines: spacing, typography scale, layout grid, responsive, copy.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>claire.zone · Claire Raud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    /* ══════════════════════════════════════════════
+       TOKENS — reconciled claire.zone + Elegant
+       ══════════════════════════════════════════════ */
+    :root {
+      --bg: #111110;
+      --surface: rgba(18, 8, 12, 0.94);
+      --surface-elevated: rgba(28, 14, 20, 0.96);
+      --fg: oklch(90% 0.012 30);
+      --fg-strong: oklch(95% 0.008 30);
+      --muted: oklch(58% 0.025 30);
+      --muted-dim: oklch(40% 0.03 28);
+      --border: oklch(28% 0.035 28);
+      --border-light: oklch(35% 0.04 28);
+      --accent: oklch(68% 0.17 28);
+      --accent-soft: oklch(68% 0.17 28 / 14%);
+      --accent-glow: oklch(68% 0.17 28 / 40%);
+      --accent-hover: oklch(72% 0.18 28);
+      --accent-active: oklch(60% 0.16 28);
+
+      --font-display: 'Comfortaa', 'Iowan Old Style', Georgia, serif;
+      --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', system-ui, sans-serif;
+      --font-mono: ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+      --fs-hero: clamp(40px, 7vw, 72px);
+      --fs-h1: clamp(32px, 5vw, 56px);
+      --fs-h2: clamp(22px, 3.2vw, 34px);
+      --fs-h3: clamp(18px, 2.2vw, 24px);
+      --fs-body: clamp(16px, 1.15vw, 18px);
+      --fs-lead: clamp(17px, 1.3vw, 20px);
+      --fs-small: 14px;
+      --fs-tiny: 12px;
+      --leading-body: 1.65;
+      --leading-heading: 1.2;
+      --tracking-display: -0.01em;
+
+      --space-2: 6px;
+      --space-3: 10px;
+      --space-4: 16px;
+      --space-5: 22px;
+      --space-6: 30px;
+      --space-8: 42px;
+      --space-10: 56px;
+      --space-12: 72px;
+      --space-16: 100px;
+
+      --container: 760px;
+      --container-wide: 960px;
+      --gutter: 24px;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 9999px;
+
+      --motion-fast: 180ms;
+      --motion-base: 280ms;
+      --ease-spring: cubic-bezier(0.22, 0.99, 0.3, 1);
+      --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    /* ═══ keyframes ═══ */
+    @keyframes kenBurns {
+      0%   { background-position: 50% 0%;   background-size: auto 150vh; }
+      50%  { background-position: 50% 50%;  background-size: auto 180vh; }
+      100% { background-position: 50% 100%; background-size: auto 150vh; }
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 0.55; }
+      50%      { opacity: 0.85; }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ═══ reset & base ═══ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+      min-height: 100vh;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      background-image:
+        linear-gradient(rgba(17,17,16,0.55), rgba(17,17,16,0.55)),
+        url(bg.jpeg);
+      background-attachment: fixed;
+      background-size: auto 150vh;
+      background-position: 50% 0%;
+      background-repeat: no-repeat;
+      animation: kenBurns 28s ease-in-out infinite alternate;
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: var(--leading-body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; transition: color var(--motion-fast) ease; }
+    p, ul, ol { margin: 0; }
+    p { text-wrap: pretty; }
+    h1, h2, h3, h4 { text-wrap: balance; }
+
+    /* ═══ layout ═══ */
+    .container {
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+    .container-wide {
+      max-width: var(--container-wide);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    /* ═══ type ═══ */
+    .display { font-family: var(--font-display); }
+    h1, h2, h3, .h1, .h2, .h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: var(--tracking-display); }
+    h1, .h1 { font-size: var(--fs-h1); line-height: var(--leading-heading); }
+    h2, .h2 { font-size: var(--fs-h2); line-height: var(--leading-heading); }
+    h3, .h3 { font-size: var(--fs-h3); line-height: 1.3; }
+    h1, h2, h3 { margin: 0; }
+    .meta { font-family: var(--font-mono); font-size: var(--fs-small); color: var(--muted); }
+    .num  { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+    /* ═══ header / sticky nav ═══ */
+    header#top {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      transition: all var(--motion-base) var(--ease-spring);
+      padding: var(--space-5) 0;
+    }
+    header#top .header-inner {
+      max-width: var(--container-wide);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      transition: all var(--motion-base) var(--ease-spring);
+    }
+    header#top .header-link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex: 1;
+    }
+    header#top .photo {
+      margin: 0;
+      line-height: 0;
+      flex-shrink: 0;
+      transition: all var(--motion-base) var(--ease-spring);
+    }
+    header#top .photo img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-soft);
+      transition: all var(--motion-base) var(--ease-spring);
+      object-fit: cover;
+    }
+    header#top h1 {
+      font-size: var(--fs-h2);
+      font-weight: 600;
+      color: rgba(255, 111, 101, 0.85);
+      transition: font-size var(--motion-base) var(--ease-spring);
+      margin: 0;
+    }
+    .social-links {
+      display: flex;
+      gap: var(--space-3);
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .social-links a {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: var(--muted);
+      font-size: 18px;
+      background: transparent;
+      border: 2px solid transparent;
+      transition: all var(--motion-fast) ease;
+    }
+    .social-links a:hover {
+      color: var(--accent-hover);
+      background: rgba(255, 111, 101, 0.12);
+      border-color: var(--accent-soft);
+    }
+    .page-nav {
+      display: flex;
+      gap: var(--space-5);
+      margin-left: auto;
+    }
+    .page-nav a {
+      font-family: var(--font-display);
+      font-size: var(--fs-small);
+      color: var(--muted);
+      position: relative;
+      padding: var(--space-2) 0;
+    }
+    .page-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--accent);
+      transition: width var(--motion-fast) ease;
+    }
+    .page-nav a:hover { color: var(--accent); }
+    .page-nav a:hover::after { width: 100%; }
+    .page-nav a.active { color: var(--accent); }
+    .page-nav a.active::after { width: 100%; }
+
+    /* ── scroll state ── */
+    body.scrolled header#top {
+      padding: var(--space-2) 0;
+      background: rgba(17, 17, 16, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    body.scrolled header#top .photo img {
+      width: 36px;
+      height: 36px;
+      border-width: 1.5px;
+    }
+    body.scrolled header#top h1 {
+      font-size: var(--fs-h3);
+    }
+    body.scrolled header#top .header-link {
+      gap: var(--space-3);
+    }
+
+    /* ═══ sections ═══ */
+    main {
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-10);
+    }
+
+    .section {
+      padding-block: var(--space-10);
+    }
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── hero / bio ── */
+    .hero-section {
+      text-align: center;
+      padding-block: var(--space-10) var(--space-8);
+      animation: slideUp 0.6s var(--ease-out) both;
+    }
+    .hero-section .hero-content {
+      max-width: 680px;
+      margin-inline: auto;
+    }
+    .hero-section .hero-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: var(--fs-tiny);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent-soft);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: var(--space-5);
+    }
+    .hero-section h1 {
+      font-size: var(--fs-hero);
+      margin-bottom: var(--space-4);
+      color: var(--fg-strong);
+    }
+    .hero-section .hero-text {
+      font-size: var(--fs-lead);
+      line-height: var(--leading-body);
+      color: var(--fg);
+      max-width: 48ch;
+      margin: var(--space-4) auto 0;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.6);
+    }
+    .hero-section .hero-text strong {
+      color: var(--fg-strong);
+      font-weight: 500;
+    }
+    .hero-section .hero-cta {
+      margin-top: var(--space-6);
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── content card ── */
+    .content-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8) var(--space-6);
+      margin-bottom: var(--space-6);
+      backdrop-filter: blur(4px);
+      transition: border-color var(--motion-base) ease;
+    }
+    .content-card:hover {
+      border-color: var(--border-light);
+    }
+    .content-card .card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+    .content-card .card-header h2 {
+      font-family: var(--font-display);
+      font-size: var(--fs-h3);
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    /* ── blog list ── */
+    .blog-list { list-style: none; padding: 0; margin: 0; }
+    .blog-item {
+      display: flex;
+      gap: var(--space-4);
+      align-items: baseline;
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--border);
+      transition: padding var(--motion-fast) ease;
+    }
+    .blog-item:last-child { border-bottom: none; }
+    .blog-item:hover {
+      padding-left: var(--space-3);
+    }
+    .blog-item .blog-date {
+      font-family: var(--font-mono);
+      font-size: var(--fs-small);
+      color: var(--muted-dim);
+      flex-shrink: 0;
+      min-width: 72px;
+    }
+    .blog-item .blog-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-body);
+      color: var(--fg-strong);
+      font-weight: 500;
+      transition: color var(--motion-fast) ease;
+    }
+    .blog-item:hover .blog-title {
+      color: var(--accent);
+    }
+
+    /* ── interests ── */
+    .interest-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3) var(--space-6);
+    }
+    .interest-list li {
+      padding: var(--space-2) 0;
+      font-size: var(--fs-body);
+      color: var(--fg);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .interest-list li::before {
+      content: '◆';
+      color: var(--accent);
+      font-size: 6px;
+      opacity: 0.6;
+    }
+    /* ── contact section ── */
+    .contact-section {
+      text-align: center;
+      padding: var(--space-10) 0;
+    }
+    .contact-section p {
+      color: var(--muted);
+      max-width: 50ch;
+      margin-inline: auto;
+    }
+    .contact-section .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-display);
+      font-size: var(--fs-h3);
+      color: var(--accent);
+      margin-top: var(--space-5);
+      padding: var(--space-3) var(--space-6);
+      border: 1px solid var(--accent-soft);
+      border-radius: var(--radius-md);
+      transition: all var(--motion-fast) ease;
+    }
+    .contact-section .contact-link:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
+
+    /* ═══ footer ═══ */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: var(--space-8) 0;
+      text-align: center;
+    }
+    footer .footer-inner {
+      max-width: var(--container-wide);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+    footer .footer-copy {
+      font-size: var(--fs-small);
+      color: var(--muted-dim);
+    }
+    footer .footer-links {
+      display: flex;
+      gap: var(--space-5);
+    }
+    footer .footer-links a {
+      color: var(--muted);
+      font-size: var(--fs-small);
+    }
+    footer .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ═══ buttons ═══ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-family: var(--font-body);
+      font-size: var(--fs-small);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--motion-fast) ease;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: rgba(0, 0, 0, 0.35);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      color: var(--fg-strong);
+      border-color: var(--border-light);
+    }
+    .btn-secondary:hover {
+      background: rgba(0, 0, 0, 0.5);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* ═══ responsive ═══ */
+    @media (max-width: 740px) {
+      :root {
+        --gutter: 18px;
+      }
+      header#top .header-inner {
+        flex-wrap: wrap;
+      }
+      .page-nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: var(--space-4);
+      }
+      header#top .photo img {
+        width: 48px;
+        height: 48px;
+      }
+      body.scrolled header#top .photo img {
+        width: 32px;
+        height: 32px;
+      }
+      .interest-list {
+        grid-template-columns: 1fr;
+      }
+      .content-card {
+        padding: var(--space-6) var(--space-4);
+      }
+      .blog-item {
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+      .blog-item .blog-date {
+        min-width: auto;
+      }
+      .hero-section {
+        padding-block: var(--space-8);
+      }
+      .hero-section h1 {
+        font-size: var(--fs-h1);
+      }
+      footer .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header#top h1 {
+        font-size: var(--fs-h3);
+      }
+      .hero-section {
+        padding-block: var(--space-8);
+      }
+      .contact-section .contact-link {
+        font-size: var(--fs-body);
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header id="top">
+    <div class="header-inner">
+      <a href="/" class="header-link">
+        <figure class="photo">
+          <img src="me.jpg" alt="Photo of Claire Raud" />
+        </figure>
+        <h1>Claire Raud</h1>
+      </a>
+      <nav class="page-nav">
+        <a href="/" class="active">Home</a>
+        <a href="/about/">About</a>
+        <a href="/">Posts</a>
+      </nav>
+      <div class="social-links">
+        <a href="" class="email" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+        <a href="https://github.com/clairesrc" aria-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ MAIN ═══ -->
+  <main>
+    <div class="container-wide">
+
+      <!-- ── HERO ── -->
+      <section class="hero-section" data-od-id="hero">
+        <div class="hero-content">
+          <h1 class="display">Software engineer,<br />systems generalist.</h1>
+          <p class="hero-text">
+            I design, build, and operate distributed systems for platform
+            engineering, infrastructure, architecture, and internal tooling.
+            Based in <strong>Chicago</strong>, I've shipped code from kernel
+            patchsets to GraphQL APIs, run production at scale, and built
+            developer platforms for engineering teams of every size.
+            Language-agnostic by nature, lately I mostly write <strong>Go</strong>
+            and <strong>Python</strong>.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">Say hello</a>
+            <a href="https://github.com/clairesrc" class="btn btn-secondary" target="_blank" rel="noopener">GitHub <i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </section>
+      <!-- ── POSTS ── -->
+      <section class="content-card" data-od-id="posts">
+        <div class="card-header">
+          <h2>Posts</h2>
+        </div>
+        <ul class="blog-list">
+          <li class="blog-item">
+            <span class="blog-date">Mar 28, 2026</span>
+            <a href="/2026/03/28/Local-AI-Vibe-Coding.html" class="blog-title">
+              Local AI Vibe Coding: full-stack apps without the cloud
+            </a>
+          </li>
+          <li class="blog-item">
+            <span class="blog-date">Aug 12, 2025</span>
+            <a href="/2025/08/12/ollama-llm-on-amd-with-nixos.html" class="blog-title">
+              Running Ollama &amp; LLMs on AMD with NixOS
+            </a>
+          </li>
+          <li class="blog-item">
+            <span class="blog-date">Apr 30, 2024</span>
+            <a href="/2024/04/30/linux-sound-delay.html" class="blog-title">
+              Linux Sound Delay: chasing audio latency on the desktop
+            </a>
+          </li>
+          <li class="blog-item">
+            <span class="blog-date">Oct 1, 2022</span>
+            <a href="/update/2022/10/01/hi.html" class="blog-title">
+              hi: the shortest post, four years in the making
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ── INTERESTS ── -->
+      <section class="content-card" data-od-id="interests">
+        <div class="card-header">
+          <h2>Interests</h2>
+        </div>
+        <ul class="interest-list">
+          <li>Desktop Linux</li>
+          <li>NixOS</li>
+          <li>Virtualization &amp; VFIO</li>
+          <li>Home IT &amp; personal cloud</li>
+          <li>VDI &amp; remote streaming</li>
+          <li>VR &amp; video games</li>
+          <li>Self-hosting &amp; data ownership</li>
+          <li>House plants</li>
+        </ul>
+
+      </section>
+
+      <!-- ── CONTACT ── -->
+      <section class="content-card contact-section" id="contact" data-od-id="contact">
+        <p>
+          Always open to talking systems architecture, platform design, distributed systems, AI
+          on consumer hardware, or whatever you're building.
+        </p>
+        <a href="" class="contact-link email">
+          <i class="fa-regular fa-envelope"></i> hi@claire.zone
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© Claire Raud · Chicago, IL</span>
+      <div class="footer-links">
+        <a href="https://github.com/clairesrc" target="_blank" rel="noopener">GitHub</a>
+        <a href="" class="email">Email</a>
+        <a href="/">Posts</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── email obfuscation ──
+    (function() {
+      var emails = document.getElementsByClassName('email');
+      for (var i = 0; i < emails.length; i++) {
+        emails[i].setAttribute('href', 'mai' + 'lto:hi' + '@' + 'clair' + 'e.zone');
+      }
+    })();
+
+    // ── scroll-triggered header shrink ──
+    (function() {
+      var ticking = false;
+      function onScroll() {
+        var scrollY = window.scrollY || window.pageYOffset;
+        var body = document.body;
+        if (scrollY > 60) {
+          body.classList.add('scrolled');
+        } else {
+          body.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            onScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+      onScroll();
+    })();
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3DHD6SV5C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L3DHD6SV5C');
+  </script>
+</body>
+</html>
