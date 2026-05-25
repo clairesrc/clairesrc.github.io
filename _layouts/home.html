@@ -1,35 +1,66 @@
 ---
 layout: default
 ---
+<div class="container-wide">
 
-<section class="hero">
-    <div class="contain">
-        <p>I am a self-taught computer person living in Chicago,&nbsp;IL&nbsp;🌎 with my&nbsp;husband&nbsp;👨‍💼 and&nbsp;cat&nbsp;🐈. I've been working in software since 2007 and I'm not even close to done yet.
-        </p>
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="display">Software engineer,<br />systems generalist.</h1>
+      <p class="hero-text">
+        Data platform engineer building reliable pipelines and
+        infrastructure at scale. Based in <strong>Chicago</strong>,
+        I've shipped everything from kernel patchsets to GraphQL APIs.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Say hello</a>
+        <a href="https://github.com/clairesrc" class="btn btn-secondary" target="_blank" rel="noopener">GitHub <i class="fa-brands fa-github"></i></a>
+      </div>
     </div>
-</section>
+  </section>
 
-{% if site.paginate %}
-{% assign posts = paginator.posts %}
-{% else %}
-{% assign posts = site.posts %}
-{% endif %}
-
-{%- if posts.size > 0 -%}
-<section>
-    <h3>📰 Posts</h3>
-    {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-    {%- for post in posts -%}
-    <article>
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
+  {%- assign posts = site.posts -%}
+  {%- if posts.size > 0 -%}
+  <section class="content-card">
+    <div class="card-header">
+      <h2>Posts</h2>
+    </div>
+    <ul class="blog-list">
+      {%- for post in posts -%}
+      <li class="blog-item">
+        <span class="blog-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a href="{{ post.url | relative_url }}" class="blog-title">
+          {{ post.title | escape }}
         </a>
-        {%- if site.show_excerpts -%}
-        {{ post.excerpt }}
-        {%- endif -%}
-    </article>
-    {%- endfor -%}
-</section>
-{%- endif -%}
-{{ content }}
+      </li>
+      {%- endfor -%}
+    </ul>
+  </section>
+  {%- endif -%}
+
+  <section class="content-card">
+    <div class="card-header">
+      <h2>Interests</h2>
+    </div>
+    <ul class="interest-list">
+      <li>Desktop Linux</li>
+      <li>NixOS</li>
+      <li>Data platforms &amp; pipelines</li>
+      <li>Local AI / self-hosted LLMs</li>
+      <li>Agentic workflows &amp; AI tooling</li>
+      <li>Virtualization &amp; VFIO</li>
+      <li>Self-hosting &amp; data ownership</li>
+      <li>VR &amp; video games</li>
+    </ul>
+  </section>
+
+  <section class="content-card contact-section" id="contact">
+    <p>
+      Always happy to talk data platforms, AI tooling, infrastructure,
+      or whatever you're building.
+    </p>
+    <a href="" class="contact-link email">
+      <i class="fa-regular fa-envelope"></i> hi@claire.zone
+    </a>
+  </section>
+
+</div>

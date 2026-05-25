@@ -1,0 +1,22 @@
+{
+  "name": "claire.zone",
+  "short_name": "claire.zone",
+  "description": "I write software.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#111110",
+  "theme_color": "#ff6f65",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/me.jpg",
+      "sizes": "256x256",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
