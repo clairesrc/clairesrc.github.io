@@ -502,22 +502,25 @@ main {
 .post-card {
   background: var(--surface);
   border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
   border-radius: var(--radius-lg);
-  padding: var(--space-8) var(--space-8);
+  padding: 0;
   margin-bottom: var(--space-6);
   backdrop-filter: blur(4px);
+  overflow: hidden;
 }
 
 .post-header {
-  margin-bottom: var(--space-8);
-  padding-bottom: var(--space-6);
+  margin-bottom: 0;
+  padding: var(--space-8) var(--space-8) var(--space-6);
   border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,111,101,0.04) 0%, transparent 100%);
 }
 .post-header .post-date {
   font-family: var(--font-mono);
   font-size: var(--fs-small);
   color: var(--accent);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
   display: block;
 }
 .post-header h1 {
@@ -527,9 +530,14 @@ main {
 }
 .post-header .post-description {
   color: var(--muted);
-  font-size: var(--fs-body);
+  font-size: var(--fs-lead);
   margin-top: var(--space-4);
-  max-width: 50ch;
+  max-width: 60ch;
+  line-height: var(--leading-body);
+}
+
+.post-body-wrap {
+  padding: var(--space-8);
 }
 
 /* ═══ Post Body Typography ═══ */
@@ -803,7 +811,9 @@ footer .footer-links a:hover {
   body.scrolled header#top .photo img { width: 32px; height: 32px; }
   .interest-list { grid-template-columns: 1fr; }
   .content-card { padding: var(--space-6) var(--space-4); }
-  .post-card { padding: var(--space-6) var(--space-4); }
+  .post-card { padding: 0; }
+  .post-header { padding: var(--space-6) var(--space-4) var(--space-5); }
+  .post-body-wrap { padding: var(--space-5) var(--space-4); }
   .blog-item {
     flex-direction: column;
     gap: var(--space-2);
