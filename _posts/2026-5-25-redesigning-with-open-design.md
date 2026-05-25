@@ -27,6 +27,8 @@ The tool chain:
 
 End result: I replicated Claude Code + Claude Design using only my own hardware. No API keys, no usage limits, no sending my design preferences to a third party.
 
+<img width="100%" alt="Screenshot of Open Design" src="https://github.com/user-attachments/assets/53b379fa-32f9-4c73-8b3e-9e34544a1012" />
+
 ## Open Design
 
 [Open Design](https://github.com/nexu-io/open-design) is an open-source, local-first alternative to Anthropic's Claude Design. It doesn't ship its own agent. Instead, it detects whatever coding agent CLI you have on your PATH (Claude Code, OpenCode, Gemini CLI, Codex, etc.) and wires it into a skill-driven design workflow with composable design systems and structured prompts.
