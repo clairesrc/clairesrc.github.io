@@ -5,19 +5,21 @@ meta-og:description: Porting a ZMK split keyboard to Zephyr 4.1 and chasing down
 meta-og:title: Vibe-coding keyboard firmware with a local LLM
 meta-og:type: article
 meta-twitter:card: summary_large_image
-meta-twitter:title: Vibe-coding keyboard firmware with a local LLM
-title: Vibe-coding keyboard firmware with a local LLM | claire.zone
+meta-twitter:title: Vibe coding keyboard firmware with a local LLM
+title: Vibe coding keyboard firmware with a local LLM
 ---
 
-# Vibe-coding keyboard firmware with a local LLM
+# Vibe coding keyboard firmware with a local LLM
 
 Porting a ZMK split keyboard to Zephyr 4.1 and chasing down a stubborn trackpad bug, end to end, with a self-hosted MiniMax-M3 and the Oh My Pi harness, no cloud.
 
 ## The keyboard
 
+<img width="800" height="800" alt="Toucan42 keyboard" src="https://github.com/user-attachments/assets/d1f17e5a-40fa-4599-a990-f9e4bcd9736f" />
+
 I'd had a good run with a Sofle split, and when I wanted something smaller to throw in a bag, the [beekeeb Toucan](https://beekeeb.com/toucan-keyboard/) caught my eye. It's a 42-key column-stagger split, on the compact side, and it comes with the toys: a small status display on the left half and a Cirque trackpad on the right. It's become my travel and commute board.
 
-The catch is that it's a ZMK board, and ZMK is firmware you build yourself. The config repo ships a `prospector-dongle` branch meant to pair the halves with a Prospector display dongle, a wireless BLE-USB receiver that shows battery and layer info on a screen. Out of the box that branch doesn't even build: it pins a third-party module whose upstream branch was deleted, so `west update` just dies. I wanted the dongle's newer status screens, which only exist on the Zephyr 4.1 / ZMK `main` track, and the whole thing was sitting there unbuildable on the older 3.5 line.
+The catch is that it's a ZMK board, and ZMK is firmware you build yourself. The config repo ships a `prospector-dongle` branch meant to pair the halves with a [Prospector display dongle](https://github.com/carrefinho/prospector), a wireless BLE-USB receiver that shows battery and layer info on a screen. Out of the box that branch doesn't even build: it pins a third-party module whose upstream branch was deleted, so `west update` just dies. I wanted the dongle's newer status screens, which only exist on the Zephyr 4.1 / ZMK `main` track, and the whole thing was sitting there unbuildable on the older 3.5 line.
 
 So: get it building, migrate it to Zephyr 4.1, get the new screens working, and somewhere in there fix a trackpad that had ideas of its own.
 
@@ -52,6 +54,8 @@ The halves are split peripherals that relay input to the dongle over Bluetooth. 
 That's the kind of bug where a less capable model hands you a plausible patch that papers over the symptom and calls it done. This one did great at following my suggestions and feedback throughout the investigation and implementation process. It traced the data path through the split transport and the input listener and fixed it at the source.
 
 By the end of an afternoon I had the new prospector status screens on the dongle, a working display on the left half, a nav-layer tap for right-click, and media keys, all built and flashed and validated on the actual hardware, then committed and pushed to [my fork](https://github.com/clairesrc/zmk-keyboard-toucan).
+
+<img width="3843" height="1486" alt="Prospector Dongle" src="https://github.com/user-attachments/assets/a2863575-faf1-4a78-b335-a3f550f43399" />
 
 ## So, can a local model do this?
 
