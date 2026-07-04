@@ -92,7 +92,9 @@ body {
   background-size: auto 150vh;
   background-position: 50% 0%;
   background-repeat: no-repeat;
-  animation: kenBurns 28s ease-in-out infinite alternate;
+  /* Disabled background animation for accessibility
+   animation: kenBurns 28s ease-in-out infinite alternate;
+   */
   color: var(--fg);
   font-family: var(--font-body);
   font-size: var(--fs-body);
